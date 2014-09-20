@@ -11,6 +11,12 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+config = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+config.merge! config.fetch(Rails.env, {})
+config.each do |k, v|
+  ENV[k] = v.to_s unless v.kind_of? Hash
+end
+
 module ReneescobarNet
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

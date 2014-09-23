@@ -20,7 +20,7 @@ describe "Authentication", :type => :feature do
       	fill_in 'session[password]', :with => 'password'
     	end
     	click_button 'Sign In'
-    	expect(page).to have_content('Logged in!')
+    	expect(current_path).to eql(admin_path)
 		end
 
 		it 'DOES NOT sign the user in' do
@@ -32,7 +32,6 @@ describe "Authentication", :type => :feature do
     	click_button 'Sign In'
     	expect(page).to have_content("Email or password is invalid")
 		end
-
 	end
 
 	

@@ -1,4 +1,5 @@
 ReneescobarNet::Application.routes.draw do
+  get "dashboard/index"
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signin', to: 'sessions#new', via: 'get'
@@ -8,7 +9,7 @@ ReneescobarNet::Application.routes.draw do
   root "homes#index"
 
   namespace :admin do 
-    
+    get '', to: 'dashboard#index', as: '/'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -2,9 +2,10 @@ require 'rails_helper'
 
 describe "Authentication", :type => :feature do
 
-	describe 'with invalid information' do
+	describe 'with valid information' do
 		before :each do
-    	AdminUser.create(:email => 'user@example.com', :password => 'caplin', :password_confirmation => 'caplin')
+			create(:admin_user)
+    	# AdminUser.create(:email => 'user@example.com', :password => 'caplin', :password_confirmation => 'caplin')
   	end
 
 		it 'should render the correct information' do 
@@ -15,12 +16,25 @@ describe "Authentication", :type => :feature do
 		it 'signs the user in' do 
 			visit '/sessions/new'
 			within("form#session") do
-     	 	fill_in 'session[email]', :with => 'user@example.com'
-      	fill_in 'session[password]', :with => 'caplin'
+     	 	fill_in 'session[email]', :with => 'admin@example.com'
+      	fill_in 'session[password]', :with => 'password'
     	end
     	click_button 'Sign In'
     	expect(page).to have_content('Logged in!')
 		end
+
+		it 'DOES NOT sign the user in' do
+			visit '/sessions/new'
+			within("form#session") do
+     	 	fill_in 'session[email]', :with => 'admin@example.com'
+      	fill_in 'session[password]', :with => 'passwdodrd'
+    	end
+    	click_button 'Sign In'
+    	expect(page).to have_content("Email or password is invalid")
+		end
+
 	end
+
+	
 
 end

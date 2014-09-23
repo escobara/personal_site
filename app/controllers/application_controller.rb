@@ -4,12 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-  def current_user
+  def current_admin_user
   	@current_admin_user ||= AdminUser.find(session[:admin_user_id]) if session[:admin_user_id]
 	end
 	helper_method :current_admin_user
 
 	def authorize
-	  redirect_to signin_path, alert: "Not authorized" if current_user.nil?
+	  redirect_to signin_path, alert: "Not authorized" if current_admin_user.nil?
 	end
 end

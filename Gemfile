@@ -50,6 +50,7 @@ group :test do
   gem "capybara"
   gem "guard-rspec"
   gem "database_cleaner"
+  gem "capybara-webkit"
   gem 'shoulda-matchers', require: false
 end
 

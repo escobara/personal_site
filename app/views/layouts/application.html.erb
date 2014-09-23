@@ -4,6 +4,11 @@
 		<h3 class='masthead-title'>@webdevescobar</h3>
 		<%= render 'navigation' %>
 	</header>
+	<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% elsif flash[:alert] %>
+		<div class="alert.alert-error"><%= flash[:alert] %></div>
+  <% end %>
 	<%= yield %>
 </div> <!-- end container -->
 <%= render 'footer' %>

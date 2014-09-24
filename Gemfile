@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.8'
 
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootswatch-rails'
+
 gem 'autoprefixer-rails'
 
 
@@ -31,6 +33,8 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 1.2'
 gem 'active_model_serializers' 
+
+gem 'codemirror-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

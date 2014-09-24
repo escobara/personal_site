@@ -10,5 +10,10 @@ feature 'Home Page' do
 		visit root_path
 		expect(find('.footer')).to have_link("Sign In")
 	end
+
+	scenario 'show sign in link' do
+		visit root_path
+		expect(find('.footer')).to have_link("Sign In")
+	end
 	
 end

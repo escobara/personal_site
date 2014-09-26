@@ -2,6 +2,8 @@
 <%= admin_form_for [:admin, @page] do |f| %>
   <%= f.error_messages %>
   <%= f.text_field :title, label: 'Page Title' %>
+  <%= f.text_field :keywords %>
+  <%= f.text_field :description %>
   <%= f.text_area :body, :class => "tinymce",  :cols => 120  %>
   <%= f.submit %>
 <% end %>

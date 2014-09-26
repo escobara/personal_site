@@ -62,7 +62,8 @@ RSpec.describe Admin::PagesController, :type => :controller do
 
   	context 'valid attributes' do 
 
-  		it 'creates the page' do 
+  		it 'creates the page' do
+         
   		end
 
   		it 'renders index' do 

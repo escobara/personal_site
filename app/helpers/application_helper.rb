@@ -15,4 +15,13 @@ module ApplicationHelper
     end
   end
   
+  def admin_form_for(object, options={}, &proc)
+    options = options.dup
+    options[:builder] ||= AdminFormBuilder
+    options[:html] ||= {}
+    options[:html][:class] ||= 'horizontal-form'
+
+    form_for(object, options, &proc)
+  end
+
 end

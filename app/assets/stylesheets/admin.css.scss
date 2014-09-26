@@ -3,13 +3,13 @@
 // First import superhero variables
 @import "bootswatch/superhero/variables";
 
-@import "codemirror";
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 @import "bootswatch/superhero/bootswatch";
 
 @import "admin/variables/all";
+
 @import "admin/mixins/all";
+
 @import "admin/layouts/all", "admin/views/all";

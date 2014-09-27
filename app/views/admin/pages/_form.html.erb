@@ -4,6 +4,8 @@
   <%= f.text_field :title, label: 'Page Title' %>
   <%= f.text_field :keywords %>
   <%= f.text_field :description %>
+  <%= f.check_box :is_published, label: 'Published' %>
+  <%= f.select :page_type, Page::PAGE_TYPE %>
   <%= f.text_area :body, :class => "tinymce",  :cols => 120  %>
   <%= f.submit %>
 <% end %>

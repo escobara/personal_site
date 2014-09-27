@@ -4,14 +4,22 @@
 	<thead>
 		<tr>
 			<th>Title</th>
+			<th>Page Type</th>
 			<th>Body</th>
-			<th></th>
+			<th>Published?</th>
 		</tr>
 	</thead>
 	<% @pages.each do |p| %>
 	<tbody>
-		<tr><% p.title %></tr>
-		<tr><% p.body %></tr>
+		<tr>
+			<td><%= p.title %></td>
+			<td><%= p.page_type %></td>
+			<td><%= p.body %></td>
+			<td><%= p.is_published %></td>
+			<td>
+				
+			</td>		
+		</tr>
 	</tbody>
 	<% end %>
 </table>

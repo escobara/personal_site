@@ -26,8 +26,9 @@ RSpec.describe Admin::PagesController, :type => :controller do
 
   describe "GET 'show'" do
     it "assigns a page to @page" do
-      # get 'show'
-      # expect(response).to be_success
+      page = create(:page)
+      get :show, id: page
+      expect(response).to be_success
     end
   end
 

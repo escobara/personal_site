@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924211220) do
+ActiveRecord::Schema.define(version: 20140927224441) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 20140924211220) do
     t.datetime "updated_at"
     t.boolean  "is_published", default: false
     t.datetime "pubdate"
+    t.string   "slug"
   end
+
+  add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
 end

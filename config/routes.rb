@@ -1,13 +1,12 @@
 ReneescobarNet::Application.routes.draw do
-  get "dashboard/index"
   
-
   get '/signin', to: 'sessions#new', via: 'get'
   get '/signout', to: 'sessions#destroy', via: 'signout'
 
   resources :sessions, only: [:new, :create, :destroy]
   
-  root "homes#index"
+  
+  root "pages#home_page"
 
   namespace :admin do 
     get '', to: 'dashboard#index', as: '/'

@@ -1,17 +1,20 @@
 # text_field, text_area, check_box, :hidden 
 class AdminFormBuilder < ActionView::Helpers::FormBuilder
-
-	# def text_field(name, *args)
-	# 	@template.content_tag :div, class: 'form-group' do
-	# 		label(name) + @template.tag(:br) + super			
-	# 	end
-	# end
+  delegate :content_tag, :tag, to: :@template
 
   %w[text_field text_area password_field collection_select].each do |method_name|
     define_method(method_name) do |name, *args|
-      @template.content_tag :div, class: "form-group" do
+      content_tag :div, class: "form-group" do
       	# super arguments must be explicit
-       field_label(name, *args) + @template.tag(:br) + super(name, *args)
+       field_label(name, *args) + tag(:br) + super(name, *args)
+      end
+    end
+  end
+
+  def check_box(name, *args)
+    content_tag :div, class: 'form-group' do
+      content_tag :div, class: 'checkbox' do 
+        super + field_label(name, *args)
       end
     end
   end
@@ -34,7 +37,7 @@ class AdminFormBuilder < ActionView::Helpers::FormBuilder
   def field_label(name, *args)
   	options = args.extract_options!
   	required = object.class.validators_on(name).any? {|v| v.kind_of? ActiveModel::Validations::PresenceValidator}
-  	label(name, options[:label], class: ("col-lg-2 control-label required" if required))
+  	label(name, options[:label], class: ("required" if required))
   end
 
   def objectify_options(options)

@@ -5,12 +5,10 @@ class Page < ActiveRecord::Base
 	validates_uniqueness_of :title
 	validates :page_type, inclusion: PAGE_TYPE
 	validates_uniqueness_of :page_type, case_sensitivity: false 
-	
+
+	# Callbacks - be sure they don't interact with other models
 	# Scopes 
 	scope :home, -> { where(page_type: 'Home')}
 
-	def to_param
-		
-	end
 
 end

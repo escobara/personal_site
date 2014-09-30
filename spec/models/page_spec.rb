@@ -31,4 +31,28 @@ RSpec.describe Page, :type => :model do
 			expect(Page.home).to match_array(@page1)
 		end
 	end
+
+	describe '#to_param' do
+		it 'should return the title page if not defined' do
+			@page1 = create(:page, page_type: 'About')
+			expect(@page1.slug).to eql('about')
+		end
+
+		it 'should be empty if home page' do
+			@page1 = create(:page, page_type: 'Home')
+			expect(@page1.slug).to eql('')
+		end
+
+		it 'returns the slug if defined' do 
+			@page1 = create(:page, page_type: 'About')
+			@page2 = create(:page, page_type: 'About', slug: 'About Us')
+			expect(@page2.slug).to eql('about-us')
+		end
+
+		it 'returns a slug + 1 if slug undefined and taken' do
+			@page1 = create(:page, page_type: 'About')
+			@page2 = create(:page, page_type: 'About')
+			expect(@page2.slug).to eql('about-us-2')
+		end
+	end
 end

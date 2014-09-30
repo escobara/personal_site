@@ -8,5 +8,5 @@ RSpec.describe "routes to home", :type => :routing do
 	it 'routes to designated home page' do
 	end
 
-	
+
 end

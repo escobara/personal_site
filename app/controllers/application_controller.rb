@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
+  def redactor_authenticate_user!
+    authorize # devise before_filter
+  end
+
+  def redactor_current_user
+    current_admin_user # devise user helper
+  end
+
   def current_admin_user
   	@current_admin_user ||= AdminUser.find(session[:admin_user_id]) if session[:admin_user_id]
 	end

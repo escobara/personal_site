@@ -6,7 +6,6 @@
   <%= f.text_field :description %>
   <%= f.check_box :is_published, label: 'Published' %>
   <%= f.select :page_type, Page::PAGE_TYPE %>
-  <%= f.text_area :body, :class => "tinymce",  :cols => 120  %>
+  <%= f.text_area :body, :class => "redactor",  :cols => 120  %>
   <%= f.submit %>
 <% end %>
-<%= tinymce %>

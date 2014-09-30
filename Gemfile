@@ -8,7 +8,10 @@ gem 'bootswatch-rails'
 
 gem 'autoprefixer-rails'
 
-gem 'tinymce-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'redactor-rails'
+
 gem 'simple_form'
 
 # Use mysql as the database for Active Record

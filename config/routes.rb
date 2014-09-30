@@ -1,5 +1,6 @@
 ReneescobarNet::Application.routes.draw do
   
+  mount RedactorRails::Engine => '/redactor_rails'
   get '/signin', to: 'sessions#new', via: 'get'
   get '/signout', to: 'sessions#destroy', via: 'signout'
 

@@ -1,8 +1,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 @import "mixins/all";
-
+@import "redactor-rails.css";
 @import "variables/all","layouts/all", "views/all";
 

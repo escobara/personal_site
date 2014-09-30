@@ -7,6 +7,7 @@
 			<th>Page Type</th>
 			<th>Body</th>
 			<th>Published?</th>
+			<th></th>
 		</tr>
 	</thead>
 	<% @pages.each do |p| %>
@@ -14,10 +15,12 @@
 		<tr>
 			<td><%= p.title %></td>
 			<td><%= p.page_type %></td>
-			<td><%= p.body %></td>
+			<td><%= p.body.html_safe %></td>
 			<td><%= p.is_published %></td>
 			<td>
-				
+				<%= link_to 'Show', admin_page_path(p) %>
+				<%= link_to 'Edit', edit_admin_page_path(p) %>
+				<%= link_to 'Destroy'  %>
 			</td>		
 		</tr>
 	</tbody>

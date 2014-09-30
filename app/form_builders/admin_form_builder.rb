@@ -6,7 +6,7 @@ class AdminFormBuilder < ActionView::Helpers::FormBuilder
     define_method(method_name) do |name, *args|
       content_tag :div, class: "form-group" do
       	# super arguments must be explicit
-       field_label(name, *args) + tag(:br) + super(name, *args)
+        field_label(name, *args) + tag(:br) + super(name, *args)
       end
     end
   end

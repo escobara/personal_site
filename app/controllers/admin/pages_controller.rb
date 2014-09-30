@@ -24,9 +24,16 @@ module Admin
 	  end
 	  
 	  def edit 
+
 	  end 
 
 	  def update
+	  	if @page.update_attributes(page_params)
+	  		flash[:notice] = 'Page has successfully been saved'
+	  		redirect_to action: :show
+	  	else
+	  		render action: :new
+	  	end
 	  end
 
 	  def destroy

@@ -17,7 +17,7 @@ module Admin
 	  	@page = Page.new(page_params)
 	  	if @page.save
 	  		flash[:notice] = 'Page has successfully been saved'
-	  		redirect_to action: :show
+	  		redirect_to action: :show, id: @page
 	  	else
 	  		render action: :new
 	  	end
@@ -28,11 +28,11 @@ module Admin
 	  end 
 
 	  def update
-	  	if @page.update_attributes(page_params)
+	  	if @page.update(page_params)
 	  		flash[:notice] = 'Page has successfully been saved'
-	  		redirect_to action: :show
+	  		redirect_to action: :show, id: @page
 	  	else
-	  		render action: :new
+	  		render action: :edit
 	  	end
 	  end
 
@@ -46,7 +46,7 @@ module Admin
 	  end
 
 	  def page_params
-	  	params.require(:page).permit!
+	  	params.require(:page).permit(:parent_id, :body, :title, :description, :keywords, :is_published, :slug, :ancestry)
 	  end
 	end
 end

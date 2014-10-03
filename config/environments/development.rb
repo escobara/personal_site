@@ -5,7 +5,7 @@ ReneescobarNet::Application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
-
+  Paperclip.options[:command_path] = "/usr/local/bin/"
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -19,6 +19,8 @@ ReneescobarNet::Application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
 

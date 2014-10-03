@@ -2,23 +2,28 @@ FactoryGirl.define do
 
   # sequences 
   sequence(:title) {|n| "Example title #{n}"}
-  sequence(:slug) {|n| "Example-title-#{n}"}
+  sequence(:email) {|n| "example#{n}@example.com"}
 
+  factory :user do 
+    email 
+    password 'password21'
 
-  factory :admin_user do
-  	email 'admin@example.com'
-  	password 'password'
-  	password_confirmation 'password'
+    trait :admin do 
+      admin true 
+    end
   end
 
   factory :page do 
   	title
   	body 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
     page_type 'Home'
-    before :create, &:generate_slug
+
+    factory :child_page do |f|
+      f.parent FactoryGirl.create(:page)
+    end
   end
 
-  trait :is_published do
+  trait :published do
     is_published true 
   end
 end

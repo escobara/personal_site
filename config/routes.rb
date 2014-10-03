@@ -1,18 +1,25 @@
 ReneescobarNet::Application.routes.draw do
   
-  mount RedactorRails::Engine => '/redactor_rails'
-  get '/signin', to: 'sessions#new', via: 'get'
-  get '/signout', to: 'sessions#destroy', via: 'signout'
+devise_for :users, path: "", path_names: { sign_in: 'login', 
+                                               sign_out: 'logout', 
+                                               password: 'secret', 
+                                               confirmation: 'verification',  
+                                               registration: 'register', 
+                                               sign_up: 'join' }
 
-  resources :sessions, only: [:new, :create, :destroy]
+  mount Ckeditor::Engine => '/ckeditor'
   
-  
-  root "pages#home_page"
-
   namespace :admin do 
     get '', to: 'dashboard#index', as: '/'
     resources :pages 
+    resources :users
   end
+
+
+  root "pages#home_page"
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

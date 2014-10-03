@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admin::PagesController, :type => :controller do
-	before do 
-		admin_user = create(:admin_user)
-    sign_in(admin_user)
-  end
+  login_admin
 
   describe "GET 'index'" do
     before do 
@@ -18,10 +15,6 @@ RSpec.describe Admin::PagesController, :type => :controller do
       expect(assigns(:pages)).to match_array([@home, @about, @contact])
   	end
     
-    it "returns http success" do
-      get 'index'
-      expect(response).to be_success
-    end
   end
 
   describe "GET 'show'" do
@@ -47,11 +40,10 @@ RSpec.describe Admin::PagesController, :type => :controller do
   describe "Get 'edit'" do
 
   	it "assigns a new page to @page" do
+      
 	  end
 
     it "returns http success" do
-      get 'new'
-      expect(response).to be_success
     end
   end
 

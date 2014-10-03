@@ -8,15 +8,16 @@ gem 'bootswatch-rails'
 
 gem 'autoprefixer-rails'
 
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'redactor-rails'
+gem 'paperclip'
+gem 'ckeditor'
 
-gem 'simple_form'
+gem 'devise'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
-gem 'simple_form'
+
+gem 'ancestry'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -48,11 +49,13 @@ end
 
 group :development do 
 	gem 'guard-livereload', require: false
-  gem 'rubocop', require: false
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test, :development do 
 	gem 'rspec-rails'
+  gem 'rspec-activemodel-mocks'
 end
 
 group :test do

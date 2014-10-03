@@ -1,6 +1,17 @@
 module ControllerHelpers
-	def sign_in(admin_user)
-		admin_user = AdminUser.where(:email => admin_user.email).first
-		request.session[:admin_user_id] = admin_user.id
-	end
+  def login_admin
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      user = FactoryGirl.create(:user, :admin)
+      sign_in user
+    end
+  end
+
+  def login_user
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      user = FactoryGirl.create(:user)
+      sign_in user
+    end
+  end
 end

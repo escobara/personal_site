@@ -21,8 +21,9 @@ class AdminFormBuilder < ActionView::Helpers::FormBuilder
 
   def error_messages
   	if object.errors.full_messages.any? 
-  		content_tag(:div, :class => 'error_messages') do 
-  			content_tag(:h4, "Invalid Fields") + 
+  		content_tag(:div, :class => 'alert alert-dismissable alert-danger') do 
+  			content_tag(:button, "x", class: 'close', data: { dismiss: 'alert'}) +
+        content_tag(:h4, "Invalid Fields") + 
   			content_tag(:ul) do
           object.errors.full_messages.map do |msg|
             content_tag(:li, msg)

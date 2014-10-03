@@ -1,11 +1,13 @@
-
+<div class="well bs-component">
 <%= admin_form_for [:admin, @page], :html => {:multipart => true}  do |f| %>
   <%= f.error_messages %>
   <%= f.text_field :title, label: 'Page Title' %>
   <%= f.text_field :keywords %>
   <%= f.text_field :description %>
   <%= f.check_box :is_published, label: 'Published' %>
-  <%= f.select :page_type, Page::PAGE_TYPE %>
+   <%= f.collection_select :parent_id, Page.order(:title), :id, :title, include_blank: true %>
   <%= f.cktext_area :body, rows: 30, ckeditor: { :uiColor => '#303030', :toolbar => 'mini'}  %>
   <%= f.submit %>
-<% end %>
+<% end %>	
+</div>
+

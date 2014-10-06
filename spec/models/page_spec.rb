@@ -12,6 +12,10 @@ RSpec.describe Page, :type => :model do
 		end
 	end
 
+	describe '#to_params' do 
+		
+	end
+
 
 	describe '#is_published' do
 		it 'has a default state of not published' do

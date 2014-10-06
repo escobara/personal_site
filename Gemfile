@@ -16,7 +16,11 @@ gem 'devise'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
+# Tree based navigation
 gem 'ancestry'
+
+# Decorator gem 
+gem 'draper'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

@@ -11,9 +11,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ApplicationHelper, :type => :helper do
-  describe "#admin_form_for" do
-  	it "sets the correct css class" do 
-  		
-  	end
-  end
+
 end
